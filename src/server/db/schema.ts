@@ -62,29 +62,66 @@ export const organizations = pgTable("organizations", {
   slugIdx: index("organizations_slug_idx").on(table.slug),
 }))
 
-// Client Management
+// Client Management - Enhanced for Guyanese Requirements
 export const clients = pgTable("clients", {
   ...baseFields,
   organizationId: uuid("organization_id").notNull().references(() => organizations.id),
-  type: varchar("type", { length: 50 }).notNull(), // individual, company
+
+  // Basic Information
+  type: varchar("type", { length: 50 }).notNull(), // individual, company, partnership, sole_proprietorship
   firstName: varchar("first_name", { length: 100 }),
   lastName: varchar("last_name", { length: 100 }),
+  middleName: varchar("middle_name", { length: 100 }),
   companyName: varchar("company_name", { length: 255 }),
+  businessName: varchar("business_name", { length: 255 }),
+
+  // Contact Information
   email: varchar("email", { length: 255 }),
   phone: varchar("phone", { length: 50 }),
+  alternatePhone: varchar("alternate_phone", { length: 50 }),
+  address: jsonb("address").default({}), // street, city, region, postal_code, country
+
+  // Guyanese Government IDs
+  nationalId: varchar("national_id", { length: 50 }), // Guyana National ID
+  passportNumber: varchar("passport_number", { length: 50 }),
+  drivingLicense: varchar("driving_license", { length: 50 }),
+
+  // Tax and Business Numbers
   tinNumber: varchar("tin_number", { length: 50 }),
   nisNumber: varchar("nis_number", { length: 50 }),
-  address: jsonb("address").default({}),
+  vatNumber: varchar("vat_number", { length: 50 }),
+  businessRegNumber: varchar("business_reg_number", { length: 50 }), // DCRA Registration
+  companyRegNumber: varchar("company_reg_number", { length: 50 }), // DCRA Incorporation
+
+  // Business Details
+  businessSector: varchar("business_sector", { length: 100 }),
+  businessCategory: varchar("business_category", { length: 100 }),
+  dateOfBirth: timestamp("date_of_birth"),
+  dateOfIncorporation: timestamp("date_of_incorporation"),
+  registeredOfficeAddress: jsonb("registered_office_address").default({}),
+
+  // Compliance and Risk
   status: varchar("status", { length: 50 }).notNull().default("active"),
   riskLevel: varchar("risk_level", { length: 50 }).default("medium"),
   complianceScore: integer("compliance_score").default(0),
+
+  // Additional Information
   notes: text("notes"),
   tags: jsonb("tags").default([]),
+  preferences: jsonb("preferences").default({}),
+  emergencyContact: jsonb("emergency_contact").default({}),
 }, (table) => ({
   organizationIdx: index("clients_organization_idx").on(table.organizationId),
   tinIdx: index("clients_tin_idx").on(table.tinNumber),
+  nisIdx: index("clients_nis_idx").on(table.nisNumber),
+  nationalIdIdx: index("clients_national_id_idx").on(table.nationalId),
+  passportIdx: index("clients_passport_idx").on(table.passportNumber),
+  vatIdx: index("clients_vat_idx").on(table.vatNumber),
+  businessRegIdx: index("clients_business_reg_idx").on(table.businessRegNumber),
+  companyRegIdx: index("clients_company_reg_idx").on(table.companyRegNumber),
   emailIdx: index("clients_email_idx").on(table.email),
   statusIdx: index("clients_status_idx").on(table.status),
+  typeIdx: index("clients_type_idx").on(table.type),
 }))
 
 // Document Management
@@ -127,18 +164,82 @@ export const documents = pgTable("documents", {
   expiryIdx: index("documents_expiry_idx").on(table.expiryDate),
 }))
 
-// Compliance and Regulatory
+// Compliance and Regulatory - Guyanese Government Agencies
 export const agencies = pgTable("agencies", {
   id: varchar("id", { length: 50 }).primaryKey(), // GRA, NIS, DCRA, etc.
   name: varchar("name", { length: 255 }).notNull(),
+  fullName: text("full_name").notNull(),
   category: varchar("category", { length: 100 }).notNull(),
   description: text("description"),
   website: text("website"),
   contactInfo: jsonb("contact_info").default({}),
+  requirements: jsonb("requirements").default({}),
   priority: integer("priority").default(0),
   isActive: boolean("is_active").notNull().default(true),
 }, (table) => ({
   categoryIdx: index("agencies_category_idx").on(table.category),
+}))
+
+// Form Templates for Digital Form Filling
+export const formTemplates = pgTable("form_templates", {
+  ...baseFields,
+  agencyId: varchar("agency_id", { length: 50 }).notNull().references(() => agencies.id),
+  name: varchar("name", { length: 255 }).notNull(),
+  formCode: varchar("form_code", { length: 100 }).notNull(),
+  version: varchar("version", { length: 20 }).notNull().default("1.0"),
+  description: text("description"),
+  category: varchar("category", { length: 100 }).notNull(),
+  frequency: varchar("frequency", { length: 50 }), // once, monthly, quarterly, annually
+  dueDate: varchar("due_date", { length: 100 }), // "21st of each month", "31st March"
+  fees: jsonb("fees").default({}), // { base: 1000, late: 3000, currency: "GYD" }
+  formFields: jsonb("form_fields").default([]),
+  validationRules: jsonb("validation_rules").default({}),
+  calculationRules: jsonb("calculation_rules").default({}),
+  printTemplate: jsonb("print_template").default({}),
+  isActive: boolean("is_active").notNull().default(true),
+}, (table) => ({
+  agencyIdx: index("form_templates_agency_idx").on(table.agencyId),
+  codeIdx: index("form_templates_code_idx").on(table.formCode),
+  categoryIdx: index("form_templates_category_idx").on(table.category),
+}))
+
+// Client Form Submissions
+export const formSubmissions = pgTable("form_submissions", {
+  ...baseFields,
+  clientId: uuid("client_id").notNull().references(() => clients.id),
+  templateId: uuid("template_id").notNull().references(() => formTemplates.id),
+  period: varchar("period", { length: 50 }).notNull(), // 2025-01, 2025-Q1, 2025
+  formData: jsonb("form_data").default({}),
+  calculatedFields: jsonb("calculated_fields").default({}),
+  status: varchar("status", { length: 50 }).notNull().default("draft"), // draft, submitted, approved, rejected
+  submittedAt: timestamp("submitted_at"),
+  submissionReference: varchar("submission_reference", { length: 255 }),
+  fees: jsonb("fees").default({}),
+  notes: text("notes"),
+  attachments: jsonb("attachments").default([]),
+}, (table) => ({
+  clientIdx: index("form_submissions_client_idx").on(table.clientId),
+  templateIdx: index("form_submissions_template_idx").on(table.templateId),
+  statusIdx: index("form_submissions_status_idx").on(table.status),
+  periodIdx: index("form_submissions_period_idx").on(table.period),
+}))
+
+// Document Requirements by Agency
+export const documentRequirements = pgTable("document_requirements", {
+  ...baseFields,
+  agencyId: varchar("agency_id", { length: 50 }).notNull().references(() => agencies.id),
+  documentCategory: varchar("document_category", { length: 100 }).notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  isRequired: boolean("is_required").notNull().default(true),
+  applicableTo: jsonb("applicable_to").default([]), // ["individual", "company", "partnership"]
+  expiryPeriod: integer("expiry_period"), // Days
+  renewalNotice: integer("renewal_notice").default(30), // Days before expiry
+  penaltyInfo: jsonb("penalty_info").default({}),
+  validationRules: jsonb("validation_rules").default({}),
+}, (table) => ({
+  agencyIdx: index("document_requirements_agency_idx").on(table.agencyId),
+  categoryIdx: index("document_requirements_category_idx").on(table.documentCategory),
 }))
 
 export const filingTypes = pgTable("filing_types", {
@@ -273,8 +374,29 @@ export type NewClient = typeof clients.$inferInsert
 export type Document = typeof documents.$inferSelect
 export type NewDocument = typeof documents.$inferInsert
 
+export type DocumentType = typeof documentTypes.$inferSelect
+export type NewDocumentType = typeof documentTypes.$inferInsert
+
+export type Agency = typeof agencies.$inferSelect
+export type NewAgency = typeof agencies.$inferInsert
+
+export type FormTemplate = typeof formTemplates.$inferSelect
+export type NewFormTemplate = typeof formTemplates.$inferInsert
+
+export type FormSubmission = typeof formSubmissions.$inferSelect
+export type NewFormSubmission = typeof formSubmissions.$inferInsert
+
+export type DocumentRequirement = typeof documentRequirements.$inferSelect
+export type NewDocumentRequirement = typeof documentRequirements.$inferInsert
+
 export type Filing = typeof filings.$inferSelect
 export type NewFiling = typeof filings.$inferInsert
 
 export type Task = typeof tasks.$inferSelect
 export type NewTask = typeof tasks.$inferInsert
+
+export type AuditLog = typeof auditLogs.$inferSelect
+export type NewAuditLog = typeof auditLogs.$inferInsert
+
+export type Notification = typeof notifications.$inferSelect
+export type NewNotification = typeof notifications.$inferInsert

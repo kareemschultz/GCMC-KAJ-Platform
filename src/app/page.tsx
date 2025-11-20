@@ -155,9 +155,9 @@ export default function HomePage() {
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="/services">
+              <Link href="/clients">
                 <Button size="lg" variant="outline" className="text-lg px-8 py-3">
-                  Our Services
+                  Client Management
                 </Button>
               </Link>
             </motion.div>

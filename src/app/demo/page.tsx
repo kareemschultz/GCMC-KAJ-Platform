@@ -236,12 +236,16 @@ export default function DemoPage() {
                 automated workflows, and comprehensive business service management.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="btn-gradient">
-                  Start Your Free Trial
-                </Button>
-                <Button size="lg" variant="outline">
-                  Schedule a Demo
-                </Button>
+                <Link href="/dashboard">
+                  <Button size="lg" className="btn-gradient">
+                    View Full Dashboard
+                  </Button>
+                </Link>
+                <Link href="/clients">
+                  <Button size="lg" variant="outline">
+                    Explore Client Management
+                  </Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
