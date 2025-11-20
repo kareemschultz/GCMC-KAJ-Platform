@@ -2,16 +2,20 @@
 
 import { motion } from "framer-motion"
 import {
-  Shield,
-  TrendingUp,
+  Building2,
+  Calculator,
+  FileText,
   Users,
-  FileCheck,
-  BarChart3,
-  Sparkles,
+  TrendingUp,
+  Shield,
   ArrowRight,
   CheckCircle,
+  Briefcase,
+  PieChart,
+  Zap,
   Globe,
-  Zap
+  BookOpen,
+  Scale
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -32,50 +36,50 @@ const staggerChildren = {
   }
 }
 
-const features = [
+const services = [
   {
-    icon: Shield,
-    title: "AI-Powered Compliance",
-    description: "Intelligent compliance monitoring with predictive analytics and automated risk assessment.",
+    icon: Calculator,
+    title: "Tax Preparation & Planning",
+    description: "Comprehensive tax services including preparation, filing, and strategic planning for individuals and businesses.",
     color: "text-blue-500"
   },
   {
-    icon: FileCheck,
-    title: "Smart Document Management",
-    description: "OCR-powered document processing with AI categorization and expiry tracking.",
+    icon: BookOpen,
+    title: "Accounting & Bookkeeping",
+    description: "Full-service accounting solutions with real-time financial reporting and automated bookkeeping.",
     color: "text-green-500"
   },
   {
-    icon: BarChart3,
-    title: "Real-time Analytics",
-    description: "Beautiful dashboards with live compliance metrics and business intelligence.",
+    icon: Building2,
+    title: "Business Registration",
+    description: "Complete business incorporation and registration services for all entity types and jurisdictions.",
     color: "text-purple-500"
   },
   {
-    icon: Users,
-    title: "Multi-tenant Architecture",
-    description: "Secure, scalable platform supporting multiple organizations with complete data isolation.",
+    icon: Shield,
+    title: "Compliance Management",
+    description: "Automated regulatory compliance monitoring across multiple agencies with proactive alerts.",
     color: "text-orange-500"
   },
   {
-    icon: TrendingUp,
-    title: "Automated Workflows",
-    description: "Streamlined compliance workflows with intelligent task automation and reminders.",
+    icon: Briefcase,
+    title: "Advisory Services",
+    description: "Strategic business consulting and professional advisory services for growth and optimization.",
     color: "text-pink-500"
   },
   {
-    icon: Globe,
-    title: "Regulatory Coverage",
-    description: "Comprehensive support for multiple regulatory agencies and jurisdictions.",
+    icon: FileText,
+    title: "Document Management",
+    description: "Intelligent document processing, storage, and workflow management with version control.",
     color: "text-cyan-500"
   }
 ]
 
 const stats = [
-  { label: "Compliance Score", value: "99.8%", icon: CheckCircle },
-  { label: "Processing Time", value: "85% Faster", icon: Zap },
-  { label: "Client Satisfaction", value: "4.9/5", icon: TrendingUp },
-  { label: "Automated Tasks", value: "10,000+", icon: Sparkles }
+  { label: "Active Clients", value: "2,500+", icon: Users },
+  { label: "Documents Processed", value: "50K+", icon: FileText },
+  { label: "Compliance Score", value: "99.8%", icon: Shield },
+  { label: "Services Offered", value: "15+", icon: Briefcase }
 ]
 
 export default function HomePage() {
@@ -90,10 +94,10 @@ export default function HomePage() {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center space-x-2"
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
+                <Building2 className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold gradient-text">ComplianceFlow</span>
+              <span className="text-xl font-bold gradient-text">ProServe Enterprise</span>
             </motion.div>
 
             <motion.div
@@ -123,8 +127,8 @@ export default function HomePage() {
           >
             <motion.div variants={fadeInUp} className="mb-6">
               <Badge variant="outline" className="mb-4 px-3 py-1">
-                <Sparkles className="w-3 h-3 mr-1" />
-                AI-First Compliance Platform
+                <Zap className="w-3 h-3 mr-1" />
+                Professional Business Services Platform
               </Badge>
             </motion.div>
 
@@ -132,33 +136,33 @@ export default function HomePage() {
               variants={fadeInUp}
               className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
             >
-              <span className="gradient-text">Compliance</span>
+              <span className="gradient-text">Professional</span>
               <br />
-              Made Simple
+              Business Services
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
               className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed"
             >
-              Transform your business compliance with our AI-powered platform.
-              Automate regulatory workflows, track documents intelligently, and
-              stay ahead of compliance requirements with real-time insights.
+              Comprehensive tax, accounting, compliance, and advisory services platform
+              designed for modern enterprises. Streamline your business operations with
+              our integrated professional services solution.
             </motion.p>
 
             <motion.div
               variants={fadeInUp}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              <Link href="/auth/signup">
+              <Link href="/demo">
                 <Button size="lg" className="btn-gradient text-lg px-8 py-3 group">
-                  Start Free Trial
+                  Explore Platform
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="/demo">
+              <Link href="/services">
                 <Button size="lg" variant="outline" className="text-lg px-8 py-3">
-                  Watch Demo
+                  Our Services
                 </Button>
               </Link>
             </motion.div>
@@ -214,15 +218,15 @@ export default function HomePage() {
               variants={fadeInUp}
               className="text-3xl md:text-4xl font-bold mb-4"
             >
-              Everything You Need for
-              <span className="gradient-text"> Modern Compliance</span>
+              Comprehensive
+              <span className="gradient-text"> Business Services</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
             >
-              Our comprehensive platform covers every aspect of business compliance
-              with cutting-edge technology and intelligent automation.
+              From tax preparation to business registration, we provide end-to-end
+              professional services for growing enterprises.
             </motion.p>
           </motion.div>
 
@@ -233,18 +237,18 @@ export default function HomePage() {
             variants={staggerChildren}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {features.map((feature, index) => (
-              <motion.div key={feature.title} variants={fadeInUp}>
+            {services.map((service, index) => (
+              <motion.div key={service.title} variants={fadeInUp}>
                 <Card className="h-full card-hover border-border/50 bg-card/50 backdrop-blur-sm">
                   <CardHeader>
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center mb-4`}>
-                      <feature.icon className={`w-6 h-6 ${feature.color}`} />
+                      <service.icon className={`w-6 h-6 ${service.color}`} />
                     </div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    <CardTitle className="text-xl">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <CardDescription className="text-base">
-                      {feature.description}
+                      {service.description}
                     </CardDescription>
                   </CardContent>
                 </Card>
@@ -267,28 +271,29 @@ export default function HomePage() {
               variants={fadeInUp}
               className="text-3xl md:text-4xl font-bold mb-4"
             >
-              Ready to Transform Your
-              <span className="gradient-text"> Compliance Operations?</span>
+              Ready to Elevate Your
+              <span className="gradient-text"> Business Operations?</span>
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
             >
-              Join thousands of businesses that trust ComplianceFlow to manage
-              their regulatory requirements efficiently and intelligently.
+              Join thousands of businesses that trust ProServe Enterprise
+              for their professional service needs. Experience the difference
+              of integrated business solutions.
             </motion.p>
             <motion.div
               variants={fadeInUp}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Link href="/auth/signup">
+              <Link href="/contact">
                 <Button size="lg" className="btn-gradient text-lg px-8 py-3">
-                  Start Your Free Trial
+                  Schedule Consultation
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/demo">
                 <Button size="lg" variant="outline" className="text-lg px-8 py-3">
-                  Contact Sales
+                  View Demo
                 </Button>
               </Link>
             </motion.div>
@@ -301,13 +306,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded flex items-center justify-center">
-                <Shield className="w-4 h-4 text-white" />
+              <div className="w-6 h-6 bg-gradient-to-br from-blue-600 to-purple-700 rounded flex items-center justify-center">
+                <Building2 className="w-4 h-4 text-white" />
               </div>
-              <span className="font-semibold">ComplianceFlow</span>
+              <span className="font-semibold">ProServe Enterprise</span>
             </div>
             <div className="text-sm text-muted-foreground">
-              © 2024 ComplianceFlow. All rights reserved.
+              © 2024 ProServe Enterprise. All rights reserved.
             </div>
           </div>
         </div>

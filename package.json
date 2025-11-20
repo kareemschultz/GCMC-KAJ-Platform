@@ -1,7 +1,7 @@
 {
-  "name": "modern-compliance-platform",
+  "name": "proserve-enterprise",
   "version": "1.0.0",
-  "description": "Next-generation business compliance platform with AI-first approach",
+  "description": "Professional Business Services Platform - Comprehensive tax, accounting, compliance, and advisory services for modern enterprises",
   "private": true,
   "type": "module",
   "scripts": {
