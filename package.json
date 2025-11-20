@@ -1,7 +1,7 @@
 {
-  "name": "proserve-enterprise",
+  "name": "gcmc-kaj-platform",
   "version": "1.0.0",
-  "description": "Professional Business Services Platform - Comprehensive tax, accounting, compliance, and advisory services for modern enterprises",
+  "description": "GCMC-KAJ Platform - Comprehensive business services platform for Green Crescent Management Consultancy and KAJ Financial Services",
   "private": true,
   "type": "module",
   "scripts": {

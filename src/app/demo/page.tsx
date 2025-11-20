@@ -69,7 +69,7 @@ export default function DemoPage() {
               <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
                 <Building2 className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold gradient-text">ProServe Enterprise</span>
+              <span className="text-xl font-bold gradient-text">GCMC-KAJ Platform</span>
               <Badge variant="secondary" className="ml-2">Demo</Badge>
             </motion.div>
 

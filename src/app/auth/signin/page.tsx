@@ -26,7 +26,7 @@ export default function SignInPage() {
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
               <Building2 className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-bold gradient-text">ProServe Enterprise</span>
+            <span className="text-2xl font-bold gradient-text">GCMC-KAJ Platform</span>
           </div>
           <h1 className="text-2xl font-bold">Welcome back</h1>
           <p className="text-muted-foreground">Sign in to your business services platform</p>

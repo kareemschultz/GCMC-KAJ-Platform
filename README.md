@@ -1,26 +1,34 @@
-# 🚀 ProServe Enterprise
+# 🏢 GCMC-KAJ Platform
 
-> **Next-generation professional business services platform with AI-first approach**
+> **Comprehensive business services platform powered by Green Crescent Management Consultancy and KAJ Financial Services**
 
-A comprehensive, modern business services platform designed to transform how enterprises handle tax preparation, accounting, compliance, advisory services, and document management. Built with cutting-edge technology and an intuitive user experience.
+A modern, professional business services platform designed to deliver expert tax preparation, accounting, compliance management, and advisory services. Built with cutting-edge technology and an intuitive user experience for business success.
 
-![ProServe Enterprise Preview](https://via.placeholder.com/800x400/3B82F6/ffffff?text=ProServe+Enterprise+Dashboard)
+![GCMC-KAJ Platform Preview](https://via.placeholder.com/800x400/3B82F6/ffffff?text=GCMC-KAJ+Platform+Dashboard)
 
-## ✨ Features
+## ✨ Business Services
 
-- **🧮 Tax Preparation & Planning**: Comprehensive tax services with strategic planning tools
-- **📊 Accounting & Bookkeeping**: Full-service accounting with real-time financial reporting
-- **🏢 Business Registration**: Complete incorporation and registration for all entity types
+- **🧮 Tax Preparation & Planning**: Expert tax services with strategic planning tools
+- **📊 Accounting & Bookkeeping**: Professional accounting with real-time financial reporting
+- **🏢 Business Registration**: Complete incorporation and registration services
 - **🛡️ Compliance Management**: Automated regulatory compliance with proactive monitoring
 - **💼 Advisory Services**: Strategic business consulting and professional advisory
 - **📄 Document Management**: Intelligent document processing with workflow automation
 - **🤖 AI-Powered Insights**: Intelligent analytics with predictive capabilities
-- **👥 Multi-tenant Architecture**: Secure, scalable platform for multiple organizations
-- **🌍 Enterprise-Grade Security**: Bank-level security with complete audit trails
+- **👥 Multi-Client Platform**: Secure, scalable platform for multiple organizations
+- **🌍 Professional-Grade Security**: Enterprise-level security with complete audit trails
+
+## 🏢 About Our Companies
+
+### **Green Crescent Management Consultancy (GCMC)**
+Professional management consultancy providing strategic business advisory, compliance management, and operational optimization services.
+
+### **KAJ Financial Services**
+Expert financial services including tax preparation, accounting, bookkeeping, and financial planning for businesses and individuals.
 
 ## 🛠️ Technology Stack
 
-Our platform is built with modern, battle-tested technologies:
+Our platform is built with modern, reliable technologies:
 
 | Category | Technology | Why We Chose It |
 |----------|------------|-----------------|
@@ -39,15 +47,15 @@ Our platform is built with modern, battle-tested technologies:
 ### Prerequisites
 
 - **Node.js** 18.0 or later
-- **PostgreSQL** database
+- **PostgreSQL** database (optional for demo)
 - **Bun** (recommended) or npm
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/proserve-enterprise.git
-   cd proserve-enterprise
+   git clone https://github.com/kareemschultz/GCMC-KAJ-Platform.git
+   cd GCMC-KAJ-Platform
    ```
 
 2. **Install dependencies**
@@ -57,21 +65,16 @@ Our platform is built with modern, battle-tested technologies:
 
 3. **Set up environment variables**
    ```bash
-   cp .env.example .env
-   # Edit .env with your database credentials and other settings
+   cp .env.example .env.local
+   # Edit .env.local with your configuration
    ```
 
-4. **Set up the database**
-   ```bash
-   bun db:push
-   ```
-
-5. **Start the development server**
+4. **Start the development server**
    ```bash
    bun dev
    ```
 
-6. **Open your browser**
+5. **Open your browser**
    ```
    http://localhost:3000
    ```
@@ -141,16 +144,21 @@ Our platform follows modern architectural principles:
 
 ## 🚢 Deployment
 
+### Quick Deploy to Vercel
+
+1. **Push to GitHub** (already done!)
+2. **Go to [vercel.com](https://vercel.com) and import your repository**
+3. **Set Environment Variables:**
+   ```
+   DEMO_MODE=true
+   NEXTAUTH_SECRET=your-secret-key
+   NEXTAUTH_URL=https://your-app.vercel.app
+   ```
+4. **Deploy!** - Live in 2 minutes
+
 ### Environment Setup
 
-1. **Database**: Set up PostgreSQL (Neon, Supabase, or AWS RDS)
-2. **Environment Variables**: Configure all required environment variables
-3. **Build**: Run `bun build` to create production build
-4. **Deploy**: Deploy to Vercel, Railway, or your preferred platform
-
-### Recommended Platforms
-
-- **Vercel**: Seamless Next.js deployment
+- **Vercel**: Seamless Next.js deployment (recommended)
 - **Railway**: Full-stack with database
 - **Neon**: PostgreSQL database
 - **Upstash**: Redis for caching (future enhancement)
@@ -158,7 +166,7 @@ Our platform follows modern architectural principles:
 ## 📊 Performance
 
 - **Core Web Vitals**: Optimized for excellent performance scores
-- **Bundle Size**: Tree-shaking and code splitting
+- **Bundle Size**: Tree-shaking and code splitting (153KB first load)
 - **Database**: Optimized queries with proper indexing
 - **Caching**: Strategic caching at multiple layers
 - **Images**: Next.js Image optimization
@@ -173,25 +181,12 @@ Our design system is built on:
 - **Components**: Accessible Radix UI primitives
 - **Animations**: Subtle, purposeful motion
 
-## 🧪 Testing
-
-```bash
-# Unit & Integration Tests
-bun test
-
-# Component Testing
-bun test:components
-
-# End-to-End Tests
-bun test:e2e
-```
-
 ## 📈 Roadmap
 
-- [ ] **Advanced Analytics**: Enhanced business intelligence dashboards
+- [ ] **Client Portal**: Enhanced client dashboard and self-service
 - [ ] **Mobile App**: React Native companion app
-- [ ] **AI Features**: Document intelligence and automation
-- [ ] **Integrations**: Third-party accounting and tax software
+- [ ] **Advanced Analytics**: Enhanced business intelligence dashboards
+- [ ] **API Integrations**: Third-party accounting and tax software
 - [ ] **Multi-language**: Internationalization support
 - [ ] **Advanced Security**: SOC 2 compliance
 
@@ -209,20 +204,22 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 🏢 Contact
 
-- **Inspired by**: Modern SaaS platforms and professional service tools
-- **UI Inspiration**: Linear, Vercel, and other design-forward products
-- **Community**: The amazing Next.js and React communities
+**Green Crescent Management Consultancy**
+Expert management consultancy and business advisory services
+
+**KAJ Financial Services**
+Professional tax preparation, accounting, and financial services
 
 ---
 
 <div align="center">
 
-**[Website](https://proserve-enterprise.com)** •
-**[Documentation](https://docs.proserve-enterprise.com)** •
-**[Support](https://support.proserve-enterprise.com)**
+**[Live Demo](https://gcmc-kaj-platform.vercel.app)** •
+**[Documentation](https://docs.gcmc-kaj.com)** •
+**[Contact Us](https://gcmc-kaj.com/contact)**
 
-Made with ❤️ for modern businesses
+Powered by Green Crescent Management Consultancy & KAJ Financial Services
 
 </div>

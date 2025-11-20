@@ -8,11 +8,14 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
   title: {
-    default: "ProServe Enterprise | Professional Business Services Platform",
-    template: "%s | ProServe Enterprise",
+    default: "GCMC-KAJ Platform | Green Crescent Management Consultancy & KAJ Financial Services",
+    template: "%s | GCMC-KAJ Platform",
   },
-  description: "Comprehensive professional business services platform offering tax, accounting, compliance, advisory, and document management solutions for modern enterprises.",
+  description: "GCMC-KAJ Platform - Comprehensive business services platform for Green Crescent Management Consultancy and KAJ Financial Services offering tax preparation, accounting, compliance management, and advisory services.",
   keywords: [
+    "GCMC",
+    "Green Crescent Management Consultancy",
+    "KAJ Financial Services",
     "business services",
     "tax preparation",
     "accounting",
@@ -21,28 +24,26 @@ export const metadata: Metadata = {
     "advisory services",
     "document management",
     "professional services",
-    "enterprise platform",
-    "B2B SaaS",
   ],
   authors: [
     {
-      name: "ProServe Enterprise Team",
+      name: "GCMC-KAJ Platform Team",
     },
   ],
-  creator: "ProServe Enterprise",
+  creator: "Green Crescent Management Consultancy & KAJ Financial Services",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: process.env.NEXT_PUBLIC_APP_URL,
-    title: "ProServe Enterprise",
-    description: "Professional Business Services Platform for Modern Enterprises",
-    siteName: "ProServe Enterprise",
+    title: "GCMC-KAJ Platform",
+    description: "Business Services Platform for Green Crescent Management Consultancy & KAJ Financial Services",
+    siteName: "GCMC-KAJ Platform",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ProServe Enterprise",
-    description: "Professional Business Services Platform for Modern Enterprises",
-    creator: "@proserve_enterprise",
+    title: "GCMC-KAJ Platform",
+    description: "Business Services Platform for Green Crescent Management Consultancy & KAJ Financial Services",
+    creator: "@gcmc_kaj_platform",
   },
   icons: {
     icon: "/favicon.ico",

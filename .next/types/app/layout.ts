@@ -1,4 +1,4 @@
-// File: /home/kareem/proserve-enterprise/src/app/layout.tsx
+// File: /home/kareem/gcmc-kaj-platform/src/app/layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

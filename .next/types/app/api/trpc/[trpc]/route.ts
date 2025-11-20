@@ -1,4 +1,4 @@
-// File: /home/kareem/proserve-enterprise/src/app/api/trpc/[trpc]/route.ts
+// File: /home/kareem/gcmc-kaj-platform/src/app/api/trpc/[trpc]/route.ts
 import * as entry from '../../../../../../src/app/api/trpc/[trpc]/route.js'
 import type { NextRequest } from 'next/server.js'
 
