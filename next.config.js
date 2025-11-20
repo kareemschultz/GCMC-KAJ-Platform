@@ -1,13 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ['oslo'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
+  serverExternalPackages: ['oslo'],
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
       },
     },
   },
@@ -26,6 +24,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
+  outputFileTracingRoot: '/home/kareem/proserve-enterprise',
 };
 
-module.exports = nextConfig;
+export default nextConfig;

@@ -1,0 +1,8 @@
+{
+  "/api/auth/[...nextauth]/route": "/api/auth/[...nextauth]",
+  "/_not-found/page": "/_not-found",
+  "/api/trpc/[trpc]/route": "/api/trpc/[trpc]",
+  "/auth/signin/page": "/auth/signin",
+  "/demo/page": "/demo",
+  "/page": "/"
+}

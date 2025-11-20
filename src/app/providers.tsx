@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { trpc } from "@/lib/trpc"
 import { useState } from "react"
 import { httpBatchLink } from "@trpc/client"
+import superjson from "superjson"
 import { Toaster } from "sonner"
 import { SessionProvider } from "next-auth/react"
 
@@ -40,6 +41,7 @@ export function Providers({ children }: ProvidersProps) {
       links: [
         httpBatchLink({
           url: `${getBaseUrl()}/api/trpc`,
+          transformer: superjson,
         }),
       ],
     })

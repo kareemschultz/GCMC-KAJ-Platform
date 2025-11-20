@@ -1,4 +1,3 @@
-import { sql } from "drizzle-orm"
 import {
   pgTable,
   text,
@@ -10,8 +9,7 @@ import {
   uuid,
   jsonb,
   index,
-  unique,
-  serial
+  unique
 } from "drizzle-orm/pg-core"
 
 // Base fields for all tables

@@ -6,16 +6,11 @@ import {
   Calculator,
   FileText,
   Users,
-  TrendingUp,
   Shield,
   ArrowRight,
-  CheckCircle,
   Briefcase,
-  PieChart,
   Zap,
-  Globe,
-  BookOpen,
-  Scale
+  BookOpen
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -187,7 +182,7 @@ export default function HomePage() {
             variants={staggerChildren}
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
-            {stats.map((stat, index) => (
+            {stats.map((stat) => (
               <motion.div
                 key={stat.label}
                 variants={fadeInUp}
@@ -237,7 +232,7 @@ export default function HomePage() {
             variants={staggerChildren}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {services.map((service, index) => (
+            {services.map((service) => (
               <motion.div key={service.title} variants={fadeInUp}>
                 <Card className="h-full card-hover border-border/50 bg-card/50 backdrop-blur-sm">
                   <CardHeader>

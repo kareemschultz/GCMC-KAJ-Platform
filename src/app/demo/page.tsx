@@ -109,7 +109,7 @@ export default function DemoPage() {
           variants={staggerChildren}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
         >
-          {complianceMetrics.map((metric, index) => (
+          {complianceMetrics.map((metric) => (
             <motion.div key={metric.label} variants={fadeInUp}>
               <Card className="card-hover">
                 <CardContent className="p-6">
